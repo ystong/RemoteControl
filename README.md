@@ -20,6 +20,7 @@ stAddr.sin_addr.S_un.S_addr = inet_addr("192.168.3.20");
 修改为服务端的IP
 
 nginx.conf配置：
+{
 
 user www-data;
 worker_processes auto;
@@ -128,3 +129,4 @@ rtmp{
         }
 }
 
+}
