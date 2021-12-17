@@ -13,7 +13,7 @@ nginx
 nginx.conf配置见nginx.conf
 
 
-#客户端
+# 客户端
 需要安装
 ffmpeg 4.2.4
 opencv
