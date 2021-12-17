@@ -1,0 +1,49 @@
+syntax = "proto2";
+
+package safehd;
+
+// image quality
+enum ImgQuality {
+  QUALITY_LOW = 1;
+  QUALITY_MID = 2; 
+  QUALITY_HIGH = 3;
+  AUTO = 4;
+};
+
+// mouse click type
+enum MouseEventType {
+  MOUSE_R_CLICK = 1;
+  MOUSE_L_CLICK = 2;
+  MOUSE_M_CLICK = 3;
+  MOUSE_L_DCLICK = 4;
+  MOUSE_NONE = 5;
+};
+
+message MouseEvent {
+  optional bool valid = 1;
+  optional MouseEventType type = 2;
+  optional float x = 3;
+  optional float y = 4;
+};
+
+message KeyEvent {
+  optional bool valid = 1;
+  optional uint32 val = 2;
+};
+
+message UserEvent {
+  optional MouseEvent mouse = 1;
+  optional KeyEvent key = 2;
+  optional ImgQuality quality = 3;
+  optional uint64 timestamp = 4;
+  optional bool run = 5;
+}
+
+message Stream {
+  optional uint32 width = 1;
+  optional uint32 height = 2;
+  optional uint64 timestamp = 3;
+  optional ImgQuality quality = 4;
+  repeated bytes raw = 5;
+}
+
